@@ -1,0 +1,94 @@
+@media (max-width: 991.98px) {
+  .hero-section {
+    text-align: center;
+  }
+
+  .hero-section .d-flex.flex-wrap {
+    justify-content: center;
+  }
+
+  .hero-section .badge-float {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    width: auto;
+  }
+
+  #what-we-do .row > [class*="col-"] {
+    width: 50%;
+  }
+
+  .game-card {
+    transform: scale(0.95);
+    margin: 0 auto;
+  }
+
+  .game-card-overlay {
+    padding: 1rem !important;
+  }
+
+  .game-card-overlay h3 {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem !important;
+  }
+
+  .games-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .game-card {
+    transform: scale(0.92);
+  }
+
+  #team .row > [class*="col-"] {
+    width: 50%;
+  }
+
+  .team-card {
+    aspect-ratio: 4 / 4.8;
+  }
+
+  .member-name {
+    font-size: 0.9rem;
+  }
+
+  .member-role {
+    font-size: 0.72rem;
+  }
+
+  .member-sub {
+    font-size: 0.65rem;
+  }
+
+  .vertical-tag {
+    font-size: 0.75rem;
+  }
+
+  .contact-section .col-lg-5 {
+    height: fit-content;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .game-card {
+    transform: scale(0.88);
+  }
+
+  #team .row > [class*="col-"] {
+    width: 100%;
+  }
+}

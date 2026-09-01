@@ -1,0 +1,1045 @@
+:root {
+  --primary-color: rgba(11, 14, 19, 0.95);
+  --border-color: #1e2939;
+  --secondary-color: #cbfe1c;
+  --nav-font: "Chakra Petch", sans-serif;
+}
+
+body {
+  font-family: "Days One", sans-serif;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+body::selection {
+  background-color: var(--secondary-color);
+  color: #000;
+}
+
+.nav-font {
+  font-family: var(--nav-font);
+}
+.body-font {
+  font-family: "Days One", sans-serif;
+}
+/* NAVBAR STYLES */
+.navbar {
+  font-family: var(--nav-font);
+  background-color: rgba(11, 14, 19, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.navbar.border-bottom {
+  border-bottom-color: var(--border-color) !important;
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.fa-bell:hover,
+.fa-message:hover {
+  color: var(--secondary-color) !important;
+  cursor: pointer;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--secondary-color) !important;
+  font-weight: bold;
+}
+
+/* SHINY BUTTON BASE */
+.btn-shiny {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 8px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn-shiny:hover {
+  transform: translateY(-1px);
+}
+
+.btn-shiny::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(-45deg) translate(-100%, -100%);
+  transition: transform 0.6s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.btn-shiny:hover::before {
+  transform: rotate(-45deg) translate(100%, 100%);
+}
+
+/* PRIMARY SOLID BUTTON */
+.btn-sign,
+.btn-shiny:not(.btn-outline-custom) {
+  background-color: var(--secondary-color);
+  color: #000;
+  border: none;
+}
+
+.btn-sign:hover,
+.btn-sign:focus,
+.btn-sign:active,
+.btn-shiny:not(.btn-outline-custom):hover,
+.btn-shiny:not(.btn-outline-custom):focus,
+.btn-shiny:not(.btn-outline-custom):active {
+  background-color: var(--secondary-color) !important;
+  color: #000000 !important;
+  box-shadow: none;
+}
+
+/* SECONDARY OUTLINE BUTTON (Watch Tournaments) */
+.btn-outline-custom {
+  background-color: transparent !important;
+  color: var(--secondary-color) !important;
+  border: 2px solid var(--secondary-color) !important;
+}
+
+.btn-outline-custom:hover,
+.btn-outline-custom:focus,
+.btn-outline-custom:active {
+  background-color: var(--secondary-color) !important;
+  color: #000000 !important;
+  border-color: var(--secondary-color) !important;
+  box-shadow: none;
+}
+
+/* HERO SECTION STYLES */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: url("../images/hero-bg.jpg") no-repeat center center/cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(11, 14, 19, 0.7) 0%,
+    rgba(11, 14, 19, 0.98) 100%
+  );
+  z-index: 1;
+}
+
+/* RECTANGULAR HERO IMAGE BOX & BORDER */
+.hero-img-box {
+  border: 2px solid var(--secondary-color);
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* FLOATING ACTIVE PLAYERS BADGE */
+.badge-float {
+  bottom: -20px;
+  left: -20px;
+  background-color: var(--primary-color);
+  border: 2px solid var(--border-color);
+  z-index: 3;
+  font-family: var(--nav-font);
+}
+/* SECTION TITLE LINES */
+
+.tracking-wider {
+  letter-spacing: 1.5px;
+}
+
+/* GAME CARDS SETUP */
+.game-card {
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.game-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* GREEN HOVER OVERLAY */
+.game-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(203, 254, 28, 0.95) 0%,
+    rgba(203, 254, 28, 0.6) 40%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.bg-dark-pill {
+  background-color: rgba(20, 28, 15, 0.75) !important;
+  color: #ffffff !important;
+  font-family: var(--nav-font);
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+}
+
+/* HOVER STATES */
+.game-card:hover {
+  border-color: var(--secondary-color);
+  transform: translateY(-4px);
+}
+
+.game-card:hover .game-card-overlay {
+  opacity: 1;
+}
+
+.game-card:hover .game-card-img {
+  transform: scale(1.05);
+}
+
+/* CIRCLE  BUTTONS */
+.btn-circle-nav {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-circle-nav:hover {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: rgba(203, 254, 28, 0.05);
+}
+.left-line,
+.right-line {
+  width: 50px;
+  height: 2px;
+}
+
+.left-line {
+  background: linear-gradient(to left, var(--secondary-color), transparent);
+}
+
+.right-line {
+  background: linear-gradient(to right, var(--secondary-color), transparent);
+}
+/* PURE CSS CAROUSEL LOGIC */
+
+/* Hide all card groups and control buttons by default */
+.game-item,
+.nav-prev,
+.nav-next {
+  display: none !important;
+}
+
+/* PAGE 1 ACTIVE STATES */
+#page-1:checked ~ .row .card-p1 {
+  display: block !important;
+}
+#page-1:checked ~ div .nav-p1 {
+  display: inline-flex !important;
+}
+
+/* PAGE 2 ACTIVE STATES */
+#page-2:checked ~ .row .card-p2 {
+  display: block !important;
+}
+#page-2:checked ~ div .nav-p2 {
+  display: inline-flex !important;
+}
+
+/* PAGE 3 ACTIVE STATES */
+#page-3:checked ~ .row .card-p3 {
+  display: block !important;
+}
+#page-3:checked ~ div .nav-p3 {
+  display: inline-flex !important;
+}
+/* Card Base Styling */
+.service-card {
+  background-color: #141414;
+  border-radius: 20px;
+  min-height: 220px;
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  height: 100%;
+  min-height: 220px;
+}
+
+/* Icon Box Styling */
+.service-icon-box {
+  width: 55px;
+  height: 55px;
+  background-color: #1f241a;
+  border-radius: 12px;
+  color: #cbfe1c;
+  font-size: 1.4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Featured Image Cards (Controllers & Character) */
+.featured-img-card {
+  background-color: #cbfe1c;
+  border: 2px solid transparent;
+  padding: 0;
+}
+.featured-img-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* HOVER EFFECTS FOR STANDARD CARDS */
+.service-card:not(.featured-img-card):hover {
+  border-color: #cbfe1c;
+}
+
+/* Change icon box background to full secondary color on card hover */
+.service-card:not(.featured-img-card):hover .service-icon-box {
+  background-color: #cbfe1c;
+  color: #000000;
+}
+
+/* TOP-LEFT TRIANGLE CORNER (Generated via ::before pseudo-element) */
+.service-card:not(.featured-img-card)::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 0;
+  height: 0;
+  border-top: 16px solid #cbfe1c;
+  border-right: 16px solid transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* BOTTOM-RIGHT TRIANGLE CORNER (Generated via ::after pseudo-element) */
+.service-card:not(.featured-img-card)::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 0;
+  height: 0;
+  border-bottom: 16px solid #cbfe1c;
+  border-left: 16px solid transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show corner triangles on hover */
+.service-card:not(.featured-img-card):hover::before,
+.service-card:not(.featured-img-card):hover::after {
+  opacity: 1;
+}
+/* Container & Wrapper Layout */
+.logo-slider-section {
+  background-color: #0b0c0e;
+}
+
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  /* Optional side fading gradient mask */
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+/* Rounded Cards */
+.logo-card {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  flex-shrink: 0;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.logo-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.logo-card:hover {
+  transform: translateY(-5px);
+  border-color: #cbfe1c;
+}
+
+.track-left {
+  animation: scrollLeft 25s linear infinite;
+}
+
+.track-right {
+  animation: scrollRight 25s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+}
+/* Ensure Section Contains Absolute Children */
+.logo-slider-section {
+  position: relative;
+  background-color: #0d0e12;
+}
+
+/* Glowing Top Separator Line */
+.glowing-line {
+  width: 50%;
+  max-width: 550px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #cbfe1c 50%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 12px #cbfe1c,
+    0 0 25px rgba(203, 254, 28, 0.8);
+  border-radius: 50%;
+}
+
+/* Oval Neon Background Glow (Centered directly behind logos) */
+.neon-oval-glow {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 280px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(107, 254, 28, 0.915) 0%,
+    var(--secondary-color) 5%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------------- HOVER EFFECTS ---------------- */
+/* =========================================================
+   SECTION & HEADER STYLES
+   ========================================================= */
+
+.team-section {
+  background-color: #0b0c10;
+}
+
+.badge-neon {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-text {
+  color: #cbfe1c;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.describtion {
+  color: #777d8a;
+}
+
+/* =========================================================
+   CARD BASE
+   ========================================================= */
+
+.team-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 4.8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: #16181e;
+
+  border: 1px solid transparent;
+
+  transition:
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+
+  isolation: isolate;
+}
+
+/* =========================================================
+   COLOR IMAGES
+   ========================================================= */
+
+/* Member 1 */
+.team-card:has(img[src*="avatar-1"]) {
+  background-image: url("../images/avatar-1.png");
+}
+
+/* Member 2 */
+.team-card:has(img[src*="avatar-2"]) {
+  background-image: url("../images/avatar-2.png");
+}
+
+/* Member 3 */
+.team-card:has(img[src*="avatar-3"]) {
+  background-image: url("../images/avatar-3.png");
+}
+
+/* Member 4 */
+.team-card:has(img[src*="avatar-4"]) {
+  background-image: url("../images/avatar-4.png");
+}
+
+/* Member 5 */
+.team-card:has(img[src*="avatar-5"]) {
+  background-image: url("../images/avatar-5.png");
+}
+
+/* Member 6 */
+.team-card:has(img[src*="avatar-6"]) {
+  background-image: url("../images/avatar-6.png");
+}
+
+/* Member 7 */
+.team-card:has(img[src*="avatar-7"]) {
+  background-image: url("../images/avatar-7.png");
+}
+
+/* Member 8 */
+.team-card:has(img[src*="avatar-8"]) {
+  background-image: url("../images/avatar-8.png");
+}
+
+/* =========================================================
+   GRAYSCALE IMAGE
+   ========================================================= */
+
+.team-card > img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+  clip-path: inset(0 0 0 0);
+  transition:
+    clip-path 1.4s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+  transform: scale(1);
+
+  z-index: 1;
+
+  will-change: clip-path, transform;
+}
+
+/* =========================================================
+   HOVER — COLOR REVEAL
+   ========================================================= */
+
+.team-card:hover > img {
+  clip-path: inset(0 0 100% 0);
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   CARD HOVER GLOW
+   ========================================================= */
+
+.team-card:hover {
+  border-color: rgba(203, 254, 28, 0.4);
+
+  box-shadow: 0 0 20px rgba(203, 254, 28, 0.15);
+
+  transition:
+    border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+/* =========================================================
+   TEXT OVERLAY
+   ========================================================= */
+
+.card-overlay {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 20px 18px;
+
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 60%,
+    transparent 100%
+  );
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+/* =========================================================
+   MEMBER NAME
+   ========================================================= */
+
+.member-name {
+  color: #ffffff;
+
+  font-weight: 700;
+  font-size: 1.1rem;
+
+  margin-bottom: 4px;
+}
+
+/* =========================================================
+   MEMBER ROLE
+   ========================================================= */
+
+.member-role {
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 0.82rem;
+
+  margin-bottom: 2px;
+
+  transition: color 0.5s ease;
+}
+
+/* =========================================================
+   MEMBER SUBTITLE
+   ========================================================= */
+
+.member-sub {
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.75rem;
+
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   VERTICAL TAG
+   ========================================================= */
+
+.vertical-tag {
+  position: absolute;
+
+  right: 12px;
+  bottom: 24px;
+
+  writing-mode: vertical-rl;
+
+  text-transform: uppercase;
+
+  font-weight: 800;
+  font-size: 0.95rem;
+
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  pointer-events: none;
+
+  z-index: 3;
+
+  transition:
+    color 0.5s ease,
+    transform 0.5s ease;
+}
+
+/* =========================================================
+   TEXT HOVER EFFECTS
+   ========================================================= */
+
+.team-card:hover .member-role {
+  color: #cbfe1c;
+}
+
+.team-card:hover .vertical-tag {
+  color: #cbfe1c;
+
+  transform: translateX(-2px);
+}
+
+/* Section Background Gradient */
+.contact-section {
+  background: linear-gradient(180deg, #0e141f 0%, #0c1018 100%);
+  color: #ffffff;
+}
+
+.description {
+  color: #777d8a;
+}
+
+/* Header Badge */
+.badge-neon {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-text {
+  color: #cbfe1c;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+/* Left Column Info Cards */
+.info-card {
+  background-color: #1b222e;
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  background-color: #cbfe1c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b0c10;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.info-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+}
+
+.info-sub {
+  color: #8b94a5;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+/* Neon Community Card */
+.community-card {
+  background: linear-gradient(135deg, #c3fe1c 0%, #22e666 100%);
+  border-radius: 18px;
+  padding: 28px;
+  color: #0c1018;
+}
+
+.community-title {
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.community-sub {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #142010;
+  margin-bottom: 0;
+}
+
+.social-icon-btn {
+  width: 42px;
+  height: 42px;
+  background-color: #0c1018;
+  color: #cbfe1c;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* Form Container */
+.contact-form-card {
+  background-color: #1a2230;
+  border-radius: 18px;
+  padding: 32px;
+}
+
+.form-title {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.form-label {
+  color: #a0a8b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.custom-input {
+  background-color: #273142;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+}
+
+.custom-input:focus {
+  background-color: #273142;
+  border-color: #cbfe1c;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.custom-input::placeholder {
+  color: #5c667a;
+}
+
+/* Checkbox */
+.custom-checkbox {
+  background-color: #273142;
+  border: 1px solid #3d4a61;
+}
+
+.custom-checkbox:checked {
+  background-color: #cbfe1c;
+  border-color: #cbfe1c;
+}
+
+.checkbox-label {
+  color: #7d889b;
+  font-size: 0.8rem;
+}
+
+/* Send Button */
+.btn-send {
+  background-color: #cbfe1c;
+  color: #0c1018;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.95rem;
+  border: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-send:hover {
+  background-color: #b5e617;
+  color: #0c1018;
+}
+
+.form-divider {
+  border-color: #2b364a;
+}
+
+/* Form Footer Stats */
+.stat-number {
+  color: #cbfe1c;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.stat-label {
+  color: #6c788e;
+  font-size: 0.75rem;
+}
+.col-lg-5 {
+  height: fit-content;
+}
+/* Footer Container */
+.site-footer {
+  background-color: #060709;
+  color: #7d889b;
+  font-size: 0.9rem;
+}
+
+/* Brand Logo & Title */
+.footer-logo-icon {
+  color: #cbfe1c;
+  font-size: 1.6rem;
+}
+
+.footer-brand-title {
+  color: #cbfe1c;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+}
+
+.footer-desc {
+  color: #7a8291;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+/* Social Media Links */
+.social-links a {
+  color: #9a9ea7;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #cbfe1c;
+  transform: translateY(-2px);
+}
+
+/* Headings */
+.footer-heading {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Column Link Lists */
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #838a97;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #cbfe1c;
+}
+
+/* Divider & Bottom Section */
+.footer-divider {
+  border-color: #1a202c;
+  opacity: 1;
+}
+
+.copyright-text {
+  color: #616875;
+  font-size: 0.85rem;
+}
+
+.legal-link {
+  color: #838a97;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+  color: #cbfe1c;
+}
